@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, TouchableOpacity, Modal, Image } from 'react-native'; // Added 'Image' import
 import { Camera } from 'expo-camera';
 import { FontAwesome } from "@expo/vector-icons";
+import storage from "./src/config/firebaseconfig"
 
 export default function App() {
   const camRef = useRef(null);
@@ -105,13 +106,12 @@ const styles = StyleSheet.create({
 
 });
 
-let storage = firebase.storage()
 
 function salvarImagemFirebase() {
 
   const nomeImagem = "imagem1"
 
-  const upload = storage.ref().child("produtos/").child(nomeImagem).put(capturedPhoto)
+  const storageRef = ref(storage, 'produtos/' + nomeImagem).put(capturedPhoto);
 
 
 }

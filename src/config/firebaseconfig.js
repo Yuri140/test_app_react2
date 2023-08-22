@@ -22,20 +22,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 let bd = firebase.firestore()
-let storage = firebase.storage()
+const storage = firebase.storage()
 export default bd
 const analytics = getAnalytics(app);
 
 
-function salvarImagemFirebase() {
 
-  const nomeImagem = "imagem1"
-
-  const upload = storage.ref().child("produtos").child(nomeImagem).put(capturedPhoto)
-
-
-
-
-}
 
 
